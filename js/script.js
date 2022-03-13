@@ -1,9 +1,9 @@
 var counter = document.getElementById("counter")
 var counter = questionEl = document.getElementById("question")
-var counter = selectAns1 = document.getElementById("answer_1")
-var counter = selectAns2 = document.getElementById("answer_2")
-var counter = selectAns3 = document.getElementById("answer_3")
-var counter = selectAns4 = document.getElementById("answer_4")
+var counter = selectAnsw1 = document.getElementById("answer_1")
+var counter = selectAnsw2 = document.getElementById("answer_2")
+var counter = selectAnsw3 = document.getElementById("answer_3")
+var counter = selectAnsw4 = document.getElementById("answer_4")
 var outcomeEl = document.getElementById("grade")
 var title = document.getElementById("title")
 var questionNum = 0
@@ -36,3 +36,20 @@ function startQuizEl() {
     document.querySelectorAll(".quiz").forEach(quiz => {quiz.style.display = "initial"})
     quiz(questionNum);
 } 
+
+function quiz() {
+    if (questionNum >= questions.length) {
+        quizEnd();
+
+    } else {
+        questionEl.innterHTML = (questions[questionNum].title)
+        selectAnsw1.innerHTML = (questions[questionNum].choices[01])
+        
+
+
+    }
+
+
+
+
+}
