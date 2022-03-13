@@ -44,12 +44,19 @@ function quiz() {
     } else {
         questionEl.innterHTML = (questions[questionNum].title)
         selectAnsw1.innerHTML = (questions[questionNum].choices[01])
-        
-
-
+        selectAnsw2.innerHTML = (questions[questionNum].choices[02])
+        selectAnsw3.innerHTML = (questions[questionNum].choices[03])
+        selectAnsw4.innerHTML = (questions[questionNum].choices[04])
     }
+}
 
-
-
-
+function checkAnswer(btnId) {
+    if ((document.getElementById(btnId).innerHTML) === (questions[questionNum].answer)) {
+        rightAnswer();
+        questionNum++
+    } else {
+        wrongAnswer();
+        questionNum++
+    }
+    quiz(questionNum)
 }
