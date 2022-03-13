@@ -36,3 +36,63 @@ header {
     font-size: 20px;
     color: var(--default);
 }
+
+#start-quiz {
+    margin: 0 auto;
+    padding: 120px;
+    width: 100%;
+    text-align: center;
+}
+.first-pg {
+    display: flex;
+    justify-content: center;
+    width: 60%;
+    margin: 0 auto;
+}
+
+.first-pg h1 {
+    margin: 0;
+}
+
+.first-pg p {
+    margin: 0;
+}
+#start-btn {
+    font-size: 15px;
+    margin: 20px auto 0 auto;
+    display: block;
+}
+
+#question {
+    display: flex;
+    justify-content: center;
+    margin: 0 70px;
+    padding: 0 40px;
+}
+
+h2 {
+    margin: 0 60px;
+}
+
+.quiz {
+    display: none;
+}
+
+.quiz.btn {
+    font-size: 15px;
+    margin: 20px auto 0 auto;
+    justify-content: center;
+    margin: 5px 10px;
+}
+
+#outcome {
+    margin: 0;
+}
+.table {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto 10px auto;
+    height: 40%;
+    width: 30%;
+    padding: 0 10px;
+}

@@ -31,3 +31,8 @@ function count() {
     return;
 }
 
+function startQuizEl() {
+    document.querySelectorAll(".main").forEach(main => { main.style.display = "none" })
+    document.querySelectorAll(".quiz").forEach(quiz => {quiz.style.display = "initial"})
+    quiz(questionNum);
+} 
