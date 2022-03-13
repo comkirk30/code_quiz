@@ -85,7 +85,7 @@ h2 {
     margin: 5px 10px;
 }
 
-#outcome {
+#grade {
     margin: 0;
 }
 .table {
@@ -95,4 +95,31 @@ h2 {
     height: 40%;
     width: 30%;
     padding: 0 10px;
+}
+
+#newTable {
+    margin: 0 auto;
+    height: 40%;
+    width: 60%;
+}
+.btn {
+    border: 1px solid var(--default);
+    background-color: var(--default);
+    border-radius: 3px;
+    color: #d80707;
+}
+
+tr {
+    margin: 0 10px;
+    width: 100%;
+}
+
+td {
+    padding: 4px 50px;
+    margin: 5px;
+    
+}
+
+.score-btn {
+    margin: 10px auto;
 }
