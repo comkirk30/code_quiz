@@ -1,0 +1,15 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+    --default:#1d0dad;
+}
+
+header {
+    display: flex;
+    font-size: 15px;
+    margin: 0;
+    padding: 0;
+}
