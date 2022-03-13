@@ -86,5 +86,33 @@ function quizOver() {
 
 
 
+    var done = document.getElementById("done")
+    done.insertAdjacentHTML('afterend', '<p id="finalScore">Your final score is ' + score + '</p>')
 
+    var submitEl = document.getElementById("submit")    
+    submitEl.addEventListener("click", function(){
+        var value = document.getElementById('userScore').value;
+        localStorage.setItem(value, score)
+        window.location.href = "highscores.html"
+    });
+
+    clearInterval(quizCounter)
+
+}
+
+        
+
+function renderTable() {
+    var table = document.getElementById("myTable")
+    for (let i = 0; i < localStorage.length; i++) {
+       var userName = localStorage.key(i)
+       var userScore = localStorage.getItem(userName)
+        table.insertAdjacentHTML('afterbegin', '<tr class="scores"><td>' + userName + ' - ' + userScore + '</td></tr>')
+   }
+}
+
+
+function clearStorage() {
+    localStorage.clear();
+    window.location.reload();
 }
