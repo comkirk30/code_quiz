@@ -60,3 +60,31 @@ function checkAnswer(btnId) {
     }
     quiz(questionNum)
 }
+
+function rightAnswer() {
+    score = timeRemain
+    outcomeEl.innerHTML = ("Yes, correct!");
+    setTimeout(function() {outcomeEl.innerHTML = ("");
+    },500)
+}
+
+function wrongAnswer() {
+    timeRemain = (timeRemain - 15)
+    outcomeEl.innerHTML = ("No, this is incorrect.");
+    setTimeout(function() {outcomeEl.innerHTML = ("");
+    },500)
+}
+
+function quizOver() {
+    document.querySelectorAll(".quiz").forEach(quiz => { quiz.style.display = "none" })
+    var content = document.getElementById('theContent')
+    var submitEl = document.getElementById("submit")
+
+    counter.innerHTML = (0)
+
+    content.insertAdjacentHTML('afterbegin', '<h1 id="done">Complete!</h1> <button id="submit" class="btn btn-option">Submit</button> <input id="userScore"> - Please Enter Your Initials</input>');
+
+
+
+
+}
