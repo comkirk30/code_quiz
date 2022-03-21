@@ -39,14 +39,14 @@ function startQuizEl() {
 
 function quiz() {
     if (questionNum >= questions.length) {
-        quizEnd();
+        quizOver();
 
     } else {
         questionEl.innterHTML = (questions[questionNum].title)
-        selectAnsw1.innerHTML = (questions[questionNum].choices[01])
-        selectAnsw2.innerHTML = (questions[questionNum].choices[02])
-        selectAnsw3.innerHTML = (questions[questionNum].choices[03])
-        selectAnsw4.innerHTML = (questions[questionNum].choices[04])
+        selectAnsw1.innerHTML = (questions[questionNum].choices[0])
+        selectAnsw2.innerHTML = (questions[questionNum].choices[1])
+        selectAnsw3.innerHTML = (questions[questionNum].choices[2])
+        selectAnsw4.innerHTML = (questions[questionNum].choices[3])
     }
 }
 
@@ -75,7 +75,7 @@ function wrongAnswer() {
     },500)
 }
 
-function quizOver() {
+function quizEnd() {
     document.querySelectorAll(".quiz").forEach(quiz => { quiz.style.display = "none" })
     var content = document.getElementById('theContent')
     var submitEl = document.getElementById("submit")
@@ -87,7 +87,7 @@ function quizOver() {
 
 
     var done = document.getElementById("done")
-    done.insertAdjacentHTML('afterend', '<p id="finalScore">Your final score is ' + score + '</p>')
+    done.insertAdjacentHTML('afterend', '<p id="finalScore">The final score on your quiz is ' + score + '</p>')
 
     var submitEl = document.getElementById("submit")    
     submitEl.addEventListener("click", function(){
@@ -96,12 +96,11 @@ function quizOver() {
         window.location.href = "highscores.html"
     });
 
-    clearInterval(quizCounter)
+    clearInterval(quizTimer)
 
 }
 
         
-
 function renderTable() {
     var table = document.getElementById("myTable")
     for (let i = 0; i < localStorage.length; i++) {

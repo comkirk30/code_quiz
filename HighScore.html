@@ -9,13 +9,21 @@
     <script defer src="./assets/js/script.js"></script>
 </head>
 
+<div class="content">
+    <div class="row">
+        <h1 class="highscores">Top Scores</h1>
+        <table class="table">
+            <tbody id="myTable">
+                <tr class="scores"></tr>
+            </tbody>
+        </table>
+    </div>
 
-
-
-
-
-
-
+    <div class="score-btn">
+        <button type="button" onclick="window.location='index.html';" id="backBtn" class="btn">Go Back</button>
+        <button type="button" onclick="clearStorage();" href="HighScores.html" id="clearBtn" class="btn">Clear Top Scores</button>
+    </div>
+</div>
 
 
 </body>
