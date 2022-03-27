@@ -5,9 +5,8 @@
     <title ide="titlePage">Code Quiz</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="C:\Users\court\butlerGitHub\projects\code_quiz\css\style.css">
-    <script defer src=".C:\Users\court\butlerGitHub\projects\code_quiz\js\questions.js"></script>
-    <script defer src="./assC:\Users\court\butlerGitHub\projects\code_quiz\js\script.jsets/js/script.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+   
 </head>
 <body>
         <header>
@@ -33,23 +32,25 @@
                 <h2 id="question" class="quiz"></h2>
                 <div class="options">
                     <br class="quiz">
-                    <button type="button" onclick="checkAnswer(this.id)" id="answer1" class="quiz btn"></button>
+                    <button type="button" onclick="checkAnswer(this.id)" id="answer_1" class="quiz btn"></button>
                     <br class="quiz">
-                    <button type="button" onclick="checkAnswer(this.id)" id="answer2" class="quiz btn"></button>
+                    <button type="button" onclick="checkAnswer(this.id)" id="answer_2" class="quiz btn"></button>
                     <br class="quiz">
-                    <button type="button" onclick="checkAnswer(this.id)" id="answer3" class="quiz btn"></button>
+                    <button type="button" onclick="checkAnswer(this.id)" id="answer_3" class="quiz btn"></button>
                     <br class="quiz">
-                    <button type="button" onclick="checkAnswer(this.id)" id="answer4" class="quiz btn"></button>
+                    <button type="button" onclick="checkAnswer(this.id)" id="answer_4" class="quiz btn"></button>
                     <br>
-                    <h3 id="results"></h3>
+                    <h3 id="grade"></h3>
                 </div>
 
                 <div class="first-pg main">
                     <p>Answer the quiz questions in the time given. You will lose ten seconds for each wrong answer.</p>
                 </div>
-                <button id="start-btn" type="button" onclick="startQuiz();" class="main btn">Begin the Quiz</button>
+                <button id="start-btn" class="main btn">Begin the Quiz</button>
             </div>
         </section>                   
+        <script src="./js/script.js"></script>
+        <script src="./js/questions.js"></script>
 
     </body>
 </html>

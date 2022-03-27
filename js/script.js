@@ -1,24 +1,36 @@
 var counter = document.getElementById("counter")
-var counter = questionEl = document.getElementById("question")
-var counter = selectAnsw1 = document.getElementById("answer_1")
-var counter = selectAnsw2 = document.getElementById("answer_2")
-var counter = selectAnsw3 = document.getElementById("answer_3")
-var counter = selectAnsw4 = document.getElementById("answer_4")
+var questionEl = document.getElementById("question")
+var selectAnsw1 = document.getElementById("answer_1")
+var selectAnsw2 = document.getElementById("answer_2")
+var selectAnsw3 = document.getElementById("answer_3")
+var selectAnsw4 = document.getElementById("answer_4")
 var outcomeEl = document.getElementById("grade")
-var title = document.getElementById("title")
 var questionNum = 0
 var timeRemain = 0
 var quizCounter = 0
 var score = 0
 
-if(title.innerHTML === "Top Score") {
-    renderTable();
-}
+var goButton = document.getElementById("start-btn");
+goButton.addEventListener("click",beginQuiz);
+ 
+
+// if(title.innerHTML === "Top Score") {
+//     renderTable();
+// }
+
+
+// function startQuiz() {
+//     timeRemain = 75
+//     counterEl();
+//     beginQuiz();
+// }
+
 
 function counterEl() {
     counter.innerHTML = (timeRemain)
     quizTimer = setInterval(count, 1000);
 }
+
 
 function count() {
     if (timeRemain !== 0) {
@@ -31,18 +43,20 @@ function count() {
     return;
 }
 
-function startQuizEl() {
-    document.querySelectorAll(".main").forEach(main => { main.style.display = "none" })
+function beginQuiz() {
+    document.querySelectorAll(".main").forEach(main => {main.style.display = "none" })
     document.querySelectorAll(".quiz").forEach(quiz => {quiz.style.display = "initial"})
     quiz(questionNum);
 } 
 
-function quiz() {
+
+
+function quiz(questionNum) {
     if (questionNum >= questions.length) {
         quizOver();
 
     } else {
-        questionEl.innterHTML = (questions[questionNum].title)
+        questionEl.innerHTML = (questions[questionNum].title)
         selectAnsw1.innerHTML = (questions[questionNum].choices[0])
         selectAnsw2.innerHTML = (questions[questionNum].choices[1])
         selectAnsw3.innerHTML = (questions[questionNum].choices[2])
@@ -75,7 +89,7 @@ function wrongAnswer() {
     },500)
 }
 
-function quizEnd() {
+function quizOver() {
     document.querySelectorAll(".quiz").forEach(quiz => { quiz.style.display = "none" })
     var content = document.getElementById('theContent')
     var submitEl = document.getElementById("submit")
@@ -93,10 +107,10 @@ function quizEnd() {
     submitEl.addEventListener("click", function(){
         var value = document.getElementById('userScore').value;
         localStorage.setItem(value, score)
-        window.location.href = "highscores.html"
+        window.location.href = "highscore.html"
     });
 
-    clearInterval(quizTimer)
+    clearInterval(quizCounter)
 
 }
 
