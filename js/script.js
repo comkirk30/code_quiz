@@ -19,16 +19,15 @@ goButton.addEventListener("click",beginQuiz);
 // }
 
 
-// function startQuiz() {
-//     timeRemain = 75
-//     counterEl();
-//     beginQuiz();
-// }
+//function startQuiz() {
+   
+   //  beginQuiz();
+ //}
 
 
 function counterEl() {
-    counter.innerHTML = (timeRemain)
-    quizTimer = setInterval(count, 1000);
+    counter.innerHTML = timeRemain
+    quizCounter = setInterval(count, 1000);
 }
 
 
@@ -37,7 +36,7 @@ function count() {
         timeRemain--
         counter.innerHTML = (timeRemain)
     } else {
-        clearInterval(quizTimer)
+        clearInterval(quizCounter)
         quizOver();
     }
     return;
@@ -46,6 +45,8 @@ function count() {
 function beginQuiz() {
     document.querySelectorAll(".main").forEach(main => {main.style.display = "none" })
     document.querySelectorAll(".quiz").forEach(quiz => {quiz.style.display = "initial"})
+    timeRemain = 50
+    counterEl();
     quiz(questionNum);
 } 
 
@@ -78,14 +79,16 @@ function checkAnswer(btnId) {
 function rightAnswer() {
     score = timeRemain
     outcomeEl.innerHTML = ("Yes, correct!");
-    setTimeout(function() {outcomeEl.innerHTML = ("");
+    setTimeout(function() {
+        outcomeEl.innerHTML = "";
     },500)
 }
 
 function wrongAnswer() {
-    timeRemain = (timeRemain - 15)
+    timeRemain = (timeRemain - 10)
     outcomeEl.innerHTML = ("No, this is incorrect.");
-    setTimeout(function() {outcomeEl.innerHTML = ("");
+    setTimeout(function() {
+        outcomeEl.innerHTML = "";
     },500)
 }
 
@@ -94,9 +97,9 @@ function quizOver() {
     var content = document.getElementById('theContent')
     var submitEl = document.getElementById("submit")
 
-    counter.innerHTML = (0)
 
-    content.insertAdjacentHTML('afterbegin', '<h1 id="done">Complete!</h1> <button id="submit" class="btn btn-option">Submit</button> <input id="userScore"> - Please Enter Your Initials</input>');
+
+    content.insertAdjacentHTML('afterbegin', '<h1 id="done">Complete!</h1> <button id="submit" class="btn btn-option">Submit</button> <input id="userInitials"> - Please Enter Your Initials</input>');
 
 
 
@@ -105,27 +108,27 @@ function quizOver() {
 
     var submitEl = document.getElementById("submit")    
     submitEl.addEventListener("click", function(){
-        var value = document.getElementById('userScore').value;
-        localStorage.setItem(value, score)
-        window.location.href = "highscore.html"
+      var initials = document.getElementById('userInitials').value;
+        submitScore(initials)
+      
+     
     });
 
     clearInterval(quizCounter)
 
 }
 
-        
-function renderTable() {
-    var table = document.getElementById("myTable")
-    for (let i = 0; i < localStorage.length; i++) {
-       var userName = localStorage.key(i)
-       var userScore = localStorage.getItem(userName)
-        table.insertAdjacentHTML('afterbegin', '<tr class="scores"><td>' + userName + ' - ' + userScore + '</td></tr>')
-   }
-}
+      
+function submitScore(initials) {
+    let highscores = JSON.parse(localStorage.getItem("highscores"))|| []
+        let newScore = {
+            score: score, 
+            initials: initials
+        }
+        highscores.push(newScore)
+        localStorage.setItem("highscores", JSON.stringify(highscores))
+        window.location.href = "highscore.html"
+      }  
 
 
-function clearStorage() {
-    localStorage.clear();
-    window.location.reload();
-}
+
